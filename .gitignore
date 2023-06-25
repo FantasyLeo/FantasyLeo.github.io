@@ -6,3 +6,5 @@ node_modules/
 
 # hexo db
 db.json
+
+themes/a4/
