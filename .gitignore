@@ -3,3 +3,6 @@ public/
 node_modules/
 
 ./vscode/
+
+# hexo db
+db.json
