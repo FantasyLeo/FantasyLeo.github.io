@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Water Sort Puzzle</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <div id="header">
+      <button id="btnLevelSelect" title="Select Level">
+        <span id="levelDisplay">Level 1</span>
+        <span id="levelArrow">▾</span>
+      </button>
+      <span id="moveDisplay">Moves: 0</span>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <div id="controls">
+      <button id="btnUndo" class="btn" title="Undo">
+        <span class="btn-icon">↩</span>
+        <span class="btn-label">Undo</span>
+      </button>
+      <button id="btnReset" class="btn" title="Reset">
+        <span class="btn-icon">↻</span>
+        <span class="btn-label">Reset</span>
+      </button>
+      <button id="btnNext" class="btn" title="Next Level" disabled>
+        <span class="btn-icon">▶</span>
+        <span class="btn-label">Next</span>
+      </button>
+    </div>
+
+    <div id="levelSelectOverlay" class="hidden">
+      <div id="levelSelectCard">
+        <button id="btnLevelClose" class="btn-level-close">✕</button>
+        <h2>Select Level</h2>
+        <div id="levelGrid"></div>
+      </div>
+    </div>
+
+    <div id="victoryOverlay" class="hidden">
+      <div id="victoryCard">
+        <h2>Level Complete!</h2>
+        <p id="victoryMoves"></p>
+        <button id="btnVictoryNext" class="btn btn-large">Next Level ▶</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/game.js"></script>
+</body>
+</html>

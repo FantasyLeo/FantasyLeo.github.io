@@ -16,6 +16,10 @@ date: 2023-06-25 12:59:30
 慢慢地，会充实起来
 
 <br>
+
+🎮 <a href="/game/water-sort-puzzle/" style="font-size: 1.2em;">Water Sort Puzzle - 水排序谜题</a>
+
+<br>
 <br>
 <br>
 <br>
