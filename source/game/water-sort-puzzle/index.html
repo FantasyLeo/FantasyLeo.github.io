@@ -13,7 +13,10 @@
         <span id="levelDisplay">Level 1</span>
         <span id="levelArrow">▾</span>
       </button>
-      <span id="moveDisplay">Moves: 0</span>
+      <div id="headerRight">
+        <button id="btnSettings" title="Settings">⚙</button>
+        <span id="moveDisplay">Moves: 0</span>
+      </div>
     </div>
 
     <canvas id="gameCanvas"></canvas>
@@ -31,6 +34,21 @@
         <span class="btn-icon">▶</span>
         <span class="btn-label">Next</span>
       </button>
+    </div>
+
+    <div id="settingsOverlay" class="hidden">
+      <div id="settingsCard">
+        <button id="btnSettingsClose" class="btn-level-close">✕</button>
+        <h2>Settings</h2>
+        <div class="settings-row">
+          <label for="volumeSlider">Sound Volume</label>
+          <div class="volume-control">
+            <input type="range" id="volumeSlider" min="0" max="200" value="100" step="5">
+            <span id="volumePercent">100%</span>
+          </div>
+        </div>
+        <button id="btnResetVolume" class="btn btn-large">Reset to Default</button>
+      </div>
     </div>
 
     <div id="levelSelectOverlay" class="hidden">
