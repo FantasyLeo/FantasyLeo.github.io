@@ -101,7 +101,7 @@ function playTone(freq, duration, type, volume, ramp) {
   const gain = audioCtx.createGain();
   osc.type = type || 'sine';
   osc.frequency.value = freq;
-  gain.gain.setValueAtTime(volume || 0.12, t);
+  gain.gain.setValueAtTime(volume || 0.24, t);
   gain.gain.exponentialRampToValueAtTime(0.001, t + (ramp || duration));
   osc.connect(gain);
   gain.connect(audioCtx.destination);
@@ -110,7 +110,7 @@ function playTone(freq, duration, type, volume, ramp) {
 }
 
 function playSelectSound() {
-  playTone(880, 0.08, 'sine', 0.1, 0.06);
+  playTone(880, 0.08, 'sine', 0.2, 0.06);
 }
 
 function playInvalidSound() {
@@ -121,7 +121,7 @@ function playInvalidSound() {
   osc.type = 'triangle';
   osc.frequency.setValueAtTime(220, t);
   osc.frequency.linearRampToValueAtTime(150, t + 0.18);
-  gain.gain.setValueAtTime(0.1, t);
+  gain.gain.setValueAtTime(0.2, t);
   gain.gain.exponentialRampToValueAtTime(0.001, t + 0.2);
   osc.connect(gain);
   gain.connect(audioCtx.destination);
@@ -138,14 +138,14 @@ function playCompleteSound() {
   osc.type = 'sine';
   osc.frequency.setValueAtTime(180, t);
   osc.frequency.exponentialRampToValueAtTime(60, t + 0.08);
-  gain.gain.setValueAtTime(0.18, t);
+  gain.gain.setValueAtTime(0.36, t);
   gain.gain.exponentialRampToValueAtTime(0.001, t + 0.12);
   osc.connect(gain);
   gain.connect(audioCtx.destination);
   osc.start(t);
   osc.stop(t + 0.13);
   // Tiny high chirp
-  setTimeout(() => playTone(1200, 0.04, 'sine', 0.06, 0.03), 50);
+  setTimeout(() => playTone(1200, 0.04, 'sine', 0.12, 0.03), 50);
 }
 
 function startPourSound() {
@@ -186,16 +186,16 @@ function startPourSound() {
   noise.connect(bp2); bp2.connect(g2); g2.connect(audioCtx.destination);
   noise.connect(bp3); bp3.connect(g3); g3.connect(audioCtx.destination);
 
-  g1.gain.linearRampToValueAtTime(0.035, t + 0.08);
-  g2.gain.linearRampToValueAtTime(0.022, t + 0.08);
-  g3.gain.linearRampToValueAtTime(0.018, t + 0.08);
+  g1.gain.linearRampToValueAtTime(0.07, t + 0.08);
+  g2.gain.linearRampToValueAtTime(0.044, t + 0.08);
+  g3.gain.linearRampToValueAtTime(0.036, t + 0.08);
 
   // Subtle LFO for babbling brook modulation
   const lfo = audioCtx.createOscillator();
   lfo.type = 'sine';
   lfo.frequency.value = 5 + Math.random() * 4;
   const lfoGain = audioCtx.createGain();
-  lfoGain.gain.value = 0.006;
+  lfoGain.gain.value = 0.012;
   lfo.connect(lfoGain);
   lfoGain.connect(g1.gain);
   lfo.start(t);
@@ -230,7 +230,7 @@ function playWinSound() {
     osc.frequency.value = freq;
     const start = t + i * 0.1;
     gain.gain.setValueAtTime(0.001, start);
-    gain.gain.linearRampToValueAtTime(0.1, start + 0.02);
+    gain.gain.linearRampToValueAtTime(0.2, start + 0.02);
     gain.gain.exponentialRampToValueAtTime(0.001, start + 0.3);
     osc.connect(gain);
     gain.connect(audioCtx.destination);
